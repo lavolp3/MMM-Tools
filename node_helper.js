@@ -22,7 +22,7 @@ const scripts = {
   //onStart
   IP : "hostname -I",
   MEMORY_TOTAL : "free -h | grep Mem | awk '{print $2}'",
-  STORAGE_TOTAL : "df | grep 'root' | awk '{print $2}'",
+  STORAGE_TOTAL : "df -h | grep 'root' | awk '{print $2}'",
   //onSchedule
   CPU_TEMPERATURE : "cat /sys/devices/virtual/thermal/thermal_zone0/temp",
   GPU_TEMPERATURE : "cat /sys/devices/virtual/thermal/thermal_zone1/temp",
@@ -31,7 +31,7 @@ const scripts = {
   CPU_USAGE : "grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {print usage}'", //grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {print usage "%"}'
   MEMORY_USED : "free -h | grep 'Mem:' | awk '{print $3}'",
   MEMORY_USED_PERCENT : "free | grep 'Mem:' | awk '{print $3/$2*100}'",
-  STORAGE_USED : "df | grep 'root' | awk '{print $3}'",
+  STORAGE_USED : "df -h | grep 'root' | awk '{print $3}'",
   STORAGE_USED_PERCENT : "df | grep 'root' | awk '{print $3/$2*100}'",
   //onDemand
   SCREEN_ON : "xset dpms force on",
